@@ -61,6 +61,7 @@ def generate_cdf_one_point(x, alpha, beta):
         # theta0 = np.pi / 2
         # U = calculate_V(1, beta, theta0)
 
+<<<<<<< HEAD
         # integrand = lambda theta: np.exp(
         #     -np.exp((-x / beta) * (np.pi / 2)) * U(theta)
         # )
@@ -83,6 +84,12 @@ def generate_cdf_one_point(x, alpha, beta):
 
         integrand = lambda theta: np.exp(-np.exp(log_g(theta)))
 
+=======
+        integrand = lambda theta: np.exp(
+            -np.exp((-x / beta) * (np.pi / 2)) * U(theta)
+        )
+
+>>>>>>> main
         with np.errstate(over="ignore"):
             value, _ = quad(
                 integrand,
@@ -102,8 +109,12 @@ def generate_cdf_one_point(x, alpha, beta):
 
     theta0 = theta0_stable(alpha, beta)
     if x == 0:
+<<<<<<< HEAD
         return 0.5 - theta0 / np.pi
 
+=======
+            return 0.5 - theta0 / np.pi
+>>>>>>> main
     U = calculate_V(alpha, beta, theta0)
 
     exponent = alpha / (alpha - 1)
@@ -123,8 +134,12 @@ def generate_cdf_one_point(x, alpha, beta):
     )
 
     if alpha < 1:
+<<<<<<< HEAD
         return  0.5 - theta0 / np.pi + value / np.pi
 
+=======
+        return 0.5 - theta0 / np.pi + value / np.pi
+>>>>>>> main
     else:
         return 1 - value / np.pi
 
